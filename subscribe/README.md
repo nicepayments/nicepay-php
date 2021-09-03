@@ -1,0 +1,11 @@
+# Nicepay php sample
+- [php](https://www.php.net/)기본 언어 기반으로 작성된 샘플코드 입니다.
+
+## 매뉴얼
+[나이스페이먼츠 매뉴얼](https://github.com/nicepayments/nicepay-manual)을 통해 상세한 내용확인이 가능합니다.
+
+## 요구사항
+php 5 이상
+ 
+## 실행방법
+PHP 웹서버에서 regist.php 접근 하면 빌키 발급이 가능 합니다.
