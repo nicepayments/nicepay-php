@@ -4,14 +4,14 @@ header("Content-Type:text/html; charset=utf-8;");
 $tid = $_POST['tid'];
 $amount = $_POST['amount'];
 
-$clientId = '클라이언트 키';
-$secretKey = '시크릿 키';
+$clientId = 'S2_af4543a0be4d49a98122e01ec2059a56';
+$secretKey = '9eb85607103646da9f9c02b128f2e5ee';
 
 $resObject = '';
 
 try {
 	$res = requestPost(
-		"https://api.nicepay.co.kr/v1/payments/" . $tid,
+		"https://sandbox-api.nicepay.co.kr/v1/payments/" . $tid,
 		json_encode(array("amount" => $amount)),
 		$clientId . ':' . $secretKey
 	);

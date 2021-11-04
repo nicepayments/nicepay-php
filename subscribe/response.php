@@ -1,8 +1,8 @@
 <?php
 header("Content-Type:text/html; charset=utf-8;");
 
-$clientId = '클라이언트 키';
-$secretKey = '시크릿 키';
+$clientId = 'S2_af4543a0be4d49a98122e01ec2059a56';
+$secretKey = '9eb85607103646da9f9c02b128f2e5ee';
 
 $key = substr($secretKey, 0, 32);
 $iv = substr($secretKey, 0, 16);
@@ -16,7 +16,7 @@ $plainText = "cardNo=". $_POST['cardNo'] .
 
 try {
 	$res = requestPost(
-		"https://api.nicepay.co.kr/v1/subscribe/regist",
+		"https://sandbox-api.nicepay.co.kr/v1/subscribe/regist",
 		json_encode(
 			array("encData" => encrypt($plainText, $key, $iv), 
 				  "orderId" => uniqid(), 
@@ -27,6 +27,9 @@ try {
 
 	$resObject = json_decode($res);
 	$bid = $resObject->{'bid'};
+
+	billing($bid); // 빌키 승인
+	// expire($bid); // 빌키 삭제
 
 } catch (Exception $e) {
 	$e->getMessage();
@@ -39,7 +42,7 @@ function billing($bid){
 
 	try {
 		$res = requestPost(
-			"https://api.nicepay.co.kr/v1/subscribe/" . $bid . "/payments",
+			"https://sandbox-api.nicepay.co.kr/v1/subscribe/" . $bid . "/payments",
 			json_encode(
 				array("orderId" => uniqid(), 
 					"amount" => 1004, 
@@ -63,7 +66,7 @@ function expire($bid){
 
 	try {
 		$res = requestPost(
-			"https://api.nicepay.co.kr/v1/subscribe/" . $bid . "/expire",
+			"https://sandbox-api.nicepay.co.kr/v1/subscribe/" . $bid . "/expire",
 			json_encode(
 				array("orderId" => uniqid())
 			),

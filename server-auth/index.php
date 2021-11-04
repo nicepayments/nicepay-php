@@ -2,7 +2,7 @@
 header("Content-Type:text/html; charset=utf-8;"); 
 
 $uniqId = uniqid();
-$clientId = '클라이언트 키';
+$clientId = 'S2_af4543a0be4d49a98122e01ec2059a56';
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ $clientId = '클라이언트 키';
         goodsName: '나이스페이-상품',
         returnUrl: 'http://localhost:80/server-auth/response.php',
         fnError: function (result) {
-          alert('고객용메시지 : ' + result.msg + '\n개발자확인용 : ' + result.errorMsg + '')
+          alert('개발자확인용 : ' + result.errorMsg + '')
         }
       });
     }
