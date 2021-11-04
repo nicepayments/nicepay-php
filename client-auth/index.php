@@ -18,7 +18,7 @@ $clientId = "S1_6eaa0db1afdc41f3becb770878d67d25";
   <h1>NICEPAY TEST</h1>
   <button onclick="clientAuth()">clientAuth 결제하기</button>
 
-  <script src="https://pay.nicepay.co.kr/v1/js/"></script> <!--nicepay payment-window client-auth-->
+  <script src="https://pay.nicepay.co.kr/v1/js/"></script>
 
   <script>
     function clientAuth() {
